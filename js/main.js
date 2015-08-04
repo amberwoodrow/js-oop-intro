@@ -72,3 +72,32 @@ console.log(newSong.countName());
 $(document).ready(function(){
   $('body').append(newSong.create());
 });
+
+function Song() {
+// properties
+  this.songName1 = "string";
+};
+
+
+Song.prototype.setName = function(newName) {
+  if (typeof newName !== 'undefined') {
+    this.name = newName;
+  }
+  else {
+    console.log("Please enter a valid name");
+  }
+};
+
+Song.prototype.getName = function() {
+  var nameArr = this.name.split(" ").length;
+  return "Song name: " + this.name + " is "+ nameArr + " word(s) long!";
+};
+
+var dogSong = new Song();
+
+dogSong.setName("Howling at the Moon");
+$("body").append('<p>' + dogSong.getName() + '</p');
+
+
+
+
